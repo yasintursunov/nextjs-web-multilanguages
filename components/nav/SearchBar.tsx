@@ -15,7 +15,7 @@ export default function SearchBar({ autoFocus = false, onClose, className = '' }
   const { t } = useTranslation();
   const router = useRouter();
   const searchParams = useSearchParams();
-  const qParam = searchParams?.get('q') || '';
+  const qParam = searchParams?.get('q') ?? '';
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
@@ -43,15 +43,15 @@ export default function SearchBar({ autoFocus = false, onClose, className = '' }
                 <input
                   {...field}
                   ref={inputRef}
-                  placeholder={t('search.placeholder', '')}
-                  className="w-full md:w-[320px] pl-11 pr-4 py-2 rounded-[10px] "
+                  placeholder={t('search.placeholder', 'Search...')}
+                  className="w-full md:w-[320px] pl-11 pr-4 py-2 rounded-[10px] border"
                   aria-label="Search"
                 />
               )}
             </Field>
           </div>
 
-          <button type="submit" className="sr-only"></button>
+          <button type="submit" className="sr-only" aria-hidden="true" />
         </Form>
       )}
     </Formik>

@@ -93,15 +93,15 @@ export default function NavbarTop(): JSX.Element {
                     />
                   </button>
                 ) : (
-                  <Link key={i} href={item.href} className="text-[16px] ">
+                  <Link key={i} href={item.href ?? '/'} className="text-[16px] ">
                     {item.label}
                   </Link>
+
                 )}
               </React.Fragment>
             ))}
           </nav>
 
-          {/* SAĞ: inline search / lang / appointment */}
           <div className="flex items-center justify-end gap-3">
             <div ref={inlineRef} className="relative">
               {showInlineSearch ? (
